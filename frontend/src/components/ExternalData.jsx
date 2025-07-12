@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Building2 // or use Briefcase or Factory if preferred
+} from 'lucide-react';
 
 const ExternalData = () => {
   const [users, setUsers] = useState([]);
@@ -30,10 +36,26 @@ const ExternalData = () => {
       {users.map((user) => (
         <div key={user.id} className="bg-white border border-[#2772A0] p-4 rounded-lg shadow-md">
           <h4 className="text-lg font-semibold text-[#2772A0] mb-2">{user.name}</h4>
-          <p className="text-sm text-gray-600">📧 {user.email}</p>
-          <p className="text-sm text-gray-600">📍 {user.address.city}, {user.address.street}</p>
-          <p className="text-sm text-gray-600">📞 {user.phone}</p>
-          <p className="text-sm text-gray-600">💼 {user.company.name}</p>
+
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Mail className="w-4 h-4 text-gray-500" />
+            {user.email}
+          </div>
+
+          <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
+            <MapPin className="w-4 h-4 text-gray-500" />
+            {user.address.city}, {user.address.street}
+          </div>
+
+          <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
+            <Phone className="w-4 h-4 text-gray-500" />
+            {user.phone}
+          </div>
+
+          <div className="flex items-center gap-2 text-sm text-gray-600 mt-1">
+            <Building2 className="w-4 h-4 text-gray-500" />
+            {user.company.name}
+          </div>
         </div>
       ))}
     </div>
