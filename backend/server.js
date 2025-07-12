@@ -11,7 +11,10 @@ import authRoutes from './routes/auth.routes.js'; // already present
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+   origin: ['http://localhost:5173','https://crm-system-lemon.vercel.app'], // adjust when frontend is deployed
+  credentials: true
+}));
 app.use(express.json());
 
 
