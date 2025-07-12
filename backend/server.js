@@ -12,7 +12,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-   origin: ['http://localhost:5173','https://crm-system-lemon.vercel.app'], // adjust when frontend is deployed
+   origin: ['https://crm-system-lemon.vercel.app' , 'http://localhost:5173'], 
   credentials: true
 }));
 app.use(express.json());
