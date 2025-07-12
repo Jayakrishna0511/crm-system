@@ -19,7 +19,7 @@ const LeadForm = ({ close, refresh }) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await axios.post('http://localhost:5000/api/leads', form, {
+      await axios.post('https://crm-system-vk24.onrender.com/api/leads', form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       close();

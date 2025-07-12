@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   const fetchLeads = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/leads', {
+      const res = await axios.get('https://crm-system-vk24.onrender.com/api/leads', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -34,19 +34,27 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row bg-[#CCDDEA] min-h-screen">
+    <div className="flex bg-[#CCDDEA] min-h-screen">
       <Sidebar onLogout={handleLogout} />
 
-      <main className="flex-1 p-6 space-y-10">
-        <section id="leads">
-          <h2 className="text-3xl font-bold text-[#2772A0] mb-4">Lead Management</h2>
-          <LeadTable />
-        </section>
+     
+      <main className="flex-1 w-full md:w-auto">
+        
+        <div className="pt-16 md:pt-0 p-4 md:p-6 space-y-6 md:space-y-10">
+          <section id="leads">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2772A0] mb-4">
+              Lead Management
+            </h2>
+            <LeadTable />
+          </section>
 
-        <section id="external">
-          <h2 className="text-3xl font-bold text-[#2772A0] mb-4">External API Data</h2>
-          <ExternalData />
-        </section>
+          <section id="external">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2772A0] mb-4">
+              External API Data
+            </h2>
+            <ExternalData />
+          </section>
+        </div>
       </main>
     </div>
   );
